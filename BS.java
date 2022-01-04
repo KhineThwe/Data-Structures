@@ -5,8 +5,8 @@ public class BS {
     int binarySearch(int arr[],int low,int high,int key) {
     	if(high>=1) {
     	//to find the middle of array
-    	int mid=(low+high)/2;
-    	
+    	int mid=low+(high-1)/2;
+
     	//If the element is present in middle
     	//return middle
     	if(key==arr[mid]) {
