@@ -5,8 +5,8 @@ public class BS {
     int binarySearch(int arr[],int low,int high,int key) {
     	if(high>=1) {
     	//to find the middle of array
-    	int mid=low+(high-1)/2;
-
+    	int mid=(low+high)/2;
+    	
     	//If the element is present in middle
     	//return middle
     	if(key==arr[mid]) {
@@ -24,7 +24,10 @@ public class BS {
     		return binarySearch(arr, mid+1, high, key);
     	}
     	}
-    	return -1;
+       else {
+    		return -1;
+    	}
+    
     }
 	public static void main(String[] args)  {
 	   BS bs=new BS();
@@ -36,7 +39,10 @@ public class BS {
 	   System.out.print("Enter elements of array: ");
 	   for(int i=0;i<arrSize;i++) {
 		   //reading array elements from the user
-		   arr[i]=sc.nextInt();
+		   arr[i]=sc.nextInt();//1 2 3 4 
+	   }
+	   for(int i=0;i<arrSize;i++) {
+		   System.out.print("Elements of array are : "+arr[i]+"\n");
 	   }
 	   System.out.print("Enter elements that you want to search: ");
 	   //reading element to search
@@ -44,6 +50,7 @@ public class BS {
 	   int low=0;
 	   int high=arrSize-1;
 	   int result=bs.binarySearch(arr, low, high, key);
+	   System.out.print(result);
 	   if(result==-1) {
 		   System.out.print("Element is not present in this array");
 	   }else {
