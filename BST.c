@@ -80,8 +80,8 @@ struct node* deleteNode(struct node* root, int data) {
         // node with two children:
         // Get the inorder successor
         // (smallest in the right subtree)
-        struct node *temp =
-                (root->right);
+                struct node *temp =
+                 minValueNode(root->right);
 
         // Copy the inorder
         // successor's content to this node
