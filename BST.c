@@ -117,6 +117,21 @@ struct node* deleteNode(struct node* root, int key)
     return root;
 }
 
+// C function to search a given key in a given BST
+struct node* search(struct node* root, int data)
+{
+    // Base Cases: root is null or key is present at root
+    if (root == NULL || root->key == data)
+        return root;
+
+    // Key is greater than root's key
+    if (root->key < data)
+        return search(root->right, data);
+
+    // Key is smaller than root's key
+    return search(root->left, data);
+}
+
 // Driver Code
 int main()
 {
@@ -134,7 +149,7 @@ int main()
 
 
     /* Let us insert
-         50,30,20,40,70,60,80 */
+         50 30 20 40 70 60 80 */
     printf("\nPlease enter the numbers to insert: ");
     setbuf(stdout, 0);
     for (i = 0; i < n; i++) {
@@ -145,13 +160,27 @@ int main()
     printf("Inorder traversal of the given tree \n");
     inorder(root);
 
+    printf("\nPlease enter the numbers to be search: ");
+    setbuf(stdout, 0);//for debugging purpose
+    scanf("%d", &data);
+    struct node *result = search(root, data);
+    if (result == NULL) {
+        printf("Element is not present in tree");
+    } else {
+        printf("Element %d is present in tree",result->key);
+    }
+
     printf("\nPlease enter the numbers to delete: ");
     setbuf(stdout, 0);//for debugging purpose
     scanf("%d", &data);
-    printf("\nAfter Deleting\n");
     root = deleteNode(root, data);
-    printf("Inorder traversal of the modified tree \n");
-    inorder(root);
+    if(root){
+        printf("Element is not present in tree");
+    }else{
+        printf("\nAfter Deleting\n");
+        printf("Inorder traversal of the modified tree \n");
+        inorder(root);
+    }
     return 0;
 }
-//Implementaion of BST with C
+//Implemenation of BST  with C
