@@ -42,6 +42,10 @@ class FenwickTree
 		}
 		return sum;
 	}
+	
+	int getRangeSum(int l,int r) {
+		return getSum(r) - getSum(l - 1);
+	}
 
 	// Updates a node in Binary Index Tree (BITree)
 	// at given index in BITree. The given value
@@ -92,6 +96,9 @@ class FenwickTree
 
 		System.out.println("Sum of elements in arr[0..5]"+
 						" is "+ tree.getSum(5));
+		
+		System.out.println("Sum of elements in arr[3..5]"+
+				" is "+ tree.getRangeSum(3, 5));
 		
 		// Let use test the update operation
 		freq[3] += 9;
