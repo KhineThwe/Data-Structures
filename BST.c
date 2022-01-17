@@ -174,13 +174,10 @@ int main()
     setbuf(stdout, 0);//for debugging purpose
     scanf("%d", &data);
     root = deleteNode(root, data);
-    if(root){
-        printf("Element is not present in tree");
-    }else{
-        printf("\nAfter Deleting\n");
-        printf("Inorder traversal of the modified tree \n");
-        inorder(root);
-    }
+    printf("\nAfter Deleting\n");
+    printf("Inorder traversal of the modified tree \n");
+    inorder(root);
+
     return 0;
 }
 //Implemenation of BST  with C
